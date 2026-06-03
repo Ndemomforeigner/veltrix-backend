@@ -30,6 +30,14 @@ const connectDB = async () => {
   }
 };
 
+const projectRoutes = require("./routes/projects");
+
+app.use("/api/projects", projectRoutes);
+
+const statsRoutes = require("./routes/stats");
+
+app.use("/api/stats", statsRoutes);
+
 // ================= START SERVER =================
 const PORT = process.env.PORT || 5000;
 
@@ -38,6 +46,3 @@ app.listen(PORT, async () => {
   console.log(`🔥 Server running on port ${PORT}`);
 });
 
-const projectRoutes = require("./routes/projects");
-
-app.use("/api/projects", projectRoutes);
